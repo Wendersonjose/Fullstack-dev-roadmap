@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="processa.php" method="post"> <!-- Início do formulário, enviando dados para processa.php via POST -->
+
+    <label for="nome">Nome:</label> <!-- Rótulo para o campo nome -->
+    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required> <!-- Campo de texto obrigatório -->
+
+    <br><br> <!-- Quebra de linha para espaçamento -->
+
+    <label for="email">E-mail:</label> <!-- Rótulo para o campo email -->
+    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required> <!-- Campo de e-mail obrigatório -->
+
+    <br><br>
+
+    <label for="senha">Senha:</label> <!-- Rótulo para o campo senha -->
+    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required> <!-- Campo para senha -->
+
+    <br><br>
+
+    <label>Sexo:</label> <!-- Rótulo para seleção de sexo -->
+    <input type="radio" id="masculino" name="sexo" value="M"> <label for="masculino">Masculino</label> <!-- Botão de opção masculino -->
+    <input type="radio" id="feminino" name="sexo" value="F"> <label for="feminino">Feminino</label> <!-- Botão de opção feminino -->
+
+    <br><br>
+
+    <label for="interesses">Interesses:</label> <!-- Rótulo para checkbox -->
+    <input type="checkbox" id="html" name="interesses" value="HTML"> HTML <!-- Caixa de seleção HTML -->
+    <input type="checkbox" id="css" name="interesses" value="CSS"> CSS <!-- Caixa de seleção CSS -->
+    <input type="checkbox" id="js" name="interesses" value="JavaScript"> JavaScript <!-- Caixa de seleção JavaScript -->
+
+    <br><br>
+
+    <label for="mensagem">Mensagem:</label> <!-- Rótulo para campo de texto grande -->
+    <textarea id="mensagem" name="mensagem" rows="4" cols="50" placeholder="Escreva sua mensagem"></textarea> <!-- Área de texto -->
+
+    <br><br>
+
+    <label for="cidade">Cidade:</label> <!-- Rótulo para lista suspensa -->
+    <select id="cidade" name="cidade">
+        <option value="">Selecione...</option> <!-- Opção padrão -->
+        <option value="sp">São Paulo</option> <!-- Opção SP -->
+        <option value="rj">Rio de Janeiro</option> <!-- Opção RJ -->
+        <option value="mg">Minas Gerais</option> <!-- Opção MG -->
+    </select>
+
+    <br><br>
+
+    <input type="submit" value="Enviar"> <!-- Botão para enviar formulário -->
+    <input type="reset" value="Limpar"> <!-- Botão para limpar os campos -->
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+    "nome":"Wenderson",
+    "idade":38,"hobbies":["pescar","academia"],
+    "endereço":
+    {
+        "rua":"rua x",
+        "numero":51,
+        "bairro":"bairro y"
+    }
+}
