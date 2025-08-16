@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>CSS Grid — Parte 3 (Avançado)</title>
+  <link rel="stylesheet" href="grid-parte3.css" />
+</head>
+<body>
+  <h1>CSS Grid — Parte 3 (Alinhamento, Dense, Subgrid e Layout Completo)</h1>
+
+  <!-- ==========================================================
+       1) ALINHAMENTO AVANÇADO (no container e nos itens)
+       ========================================================== -->
+  <section class="card">
+    <h2>1) Alinhamento avançado</h2>
+
+    <!-- Container: controla distribuição das “faixas” do grid -->
+    <div class="grid align-container">
+      <div class="it">A</div><div class="it">B</div><div class="it">C</div>
+      <div class="it">D</div><div class="it">E</div><div class="it">F</div>
+    </div>
+    <p class="note">
+      <code>justify-content</code>/<code>align-content</code> movem o “conjunto” das faixas.<br>
+      <code>place-content: center</code> é um atalho para centralizar ambas.
+    </p>
+
+    <!-- Container: alinhamento dos itens dentro de cada célula -->
+    <div class="grid align-items">
+      <div class="it">1</div><div class="it alto">2</div><div class="it">3</div>
+      <div class="it">4</div><div class="it baixo">5</div><div class="it">6</div>
+    </div>
+    <p class="note">
+      <code>justify-items</code>/<code>align-items</code> alinhando conteúdo dentro das células.<br>
+      <code>place-items: center</code> centraliza os itens em X e Y.
+    </p>
+
+    <!-- Itens individuais sobrescrevendo (self) -->
+    <div class="grid self-items">
+      <div class="it self-start">start</div>
+      <div class="it self-center">center</div>
+      <div class="it self-end">end</div>
+      <div class="it self-stretch">stretch</div>
+    </div>
+    <p class="note">
+      Itens específicos usam <code>justify-self</code>/<code>align-self</code> ou
+      <code>place-self</code> para sobrescrever o alinhamento do container.
+    </p>
+  </section>
+
+  <!-- ==========================================================
+       2) GRID-AUTO-FLOW: DENSE (preenche lacunas)
+       ========================================================== -->
+  <section class="card">
+    <h2>2) grid-auto-flow: dense</h2>
+    <div class="grid dense">
+      <!-- spans para criar buracos/lacunas -->
+      <div class="c c1">1</div>
+      <div class="c c2">2<br>(span 2 col)</div>
+      <div class="c c3">3</div>
+      <div class="c c4">4<br>(span 2 row)</div>
+      <div class="c c5">5</div>
+      <div class="c c6">6</div>
+      <div class="c c7">7</div>
+      <div class="c c8">8</div>
+      <div class="c c9">9</div>
+      <!-- alguns itens pequenos entram “depois”, mas o dense tenta ocupá-los nas lacunas -->
+      <div class="c tiny">a</div>
+      <div class="c tiny">b</div>
+      <div class="c tiny">c</div>
+    </div>
+    <p class="note">
+      <code>grid-auto-flow: dense</code> tenta “adiantar” itens menores para tapar buracos.
+      Ótimo para grades tipo “masonry” (com cuidado para acessibilidade/ordem de leitura).
+    </p>
+  </section>
+
+  <!-- ==========================================================
+       3) SUBGRID (grids aninhados compartilham linhas do pai)
+       ========================================================== -->
+  <section class="card">
+    <h2>3) Subgrid (linhas herdadas do grid pai)</h2>
+    <div class="grid subgrid-wrapper">
+      <article class="card-article">
+        <h3 class="title">Card com Subgrid</h3>
+        <div class="meta">Meta · 12/08/2025</div>
+        <p class="excerpt">
+          O <strong>subgrid</strong> permite que elementos filhos alinhem seu conteúdo
+          com as mesmas linhas/colunas do grid do pai — útil para listas de cards consistentes.
+        </p>
+        <footer class="actions">
+          <button class="btn">Ler</button>
+          <button class="btn alt">Salvar</button>
+        </footer>
+      </article>
+
+      <article class="card-article">
+        <h3 class="title">Outro Card</h3>
+        <div class="meta">Meta · 10/08/2025</div>
+        <p class="excerpt">Todos os títulos, metas e ações “batem” nas mesmas linhas.</p>
+        <footer class="actions">
+          <button class="btn">Abrir</button>
+          <button class="btn alt">Favorito</button>
+        </footer>
+      </article>
+    </div>
+    <p class="note">
+      Suporte atual ao <code>subgrid</code> é amplo nos navegadores modernos. Em projetos reais,
+      teste a compatibilidade mínima do seu público.
+    </p>
+  </section>
+
+  <!-- ==========================================================
+       4) LAYOUT DE PÁGINA COMPLETO (responsivo)
+       ========================================================== -->
+  <section class="card">
+    <h2>4) Layout de página com Grid (áreas + responsivo)</h2>
+
+    <div class="page">
+      <header class="p header">Header</header>
+      <nav class="p nav">Nav</nav>
+      <main class="p main">Main</main>
+      <aside class="p aside">Aside</aside>
+      <footer class="p footer">Footer</footer>
+    </div>
+
+    <p class="note">
+      Em telas estreitas: layout em coluna.
+      Em telas médias/grandes: áreas refluem para uma grade de 3 colunas.
+    </p>
+  </section>
+</body>
+</html>
