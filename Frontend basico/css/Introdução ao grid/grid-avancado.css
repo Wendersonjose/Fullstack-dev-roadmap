@@ -1,0 +1,179 @@
+/* ================== Base ================== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f9fafb;
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+h1, h2 { margin: 0 0 10px 0; }
+
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 22px 0;
+}
+
+.note {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.box, .area, .cell {
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: #111827;
+  font-weight: 700;
+}
+
+/* ================== 1) grid-area numérica ================== */
+/* 3 colunas iguais x 3 linhas de 80px */
+.grid-area-numerica {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 80px);
+  gap: 10px;
+}
+
+/* A ocupa (linha 1→3, coluna 1→2) = 2 linhas x 1 coluna */
+.grid-area-numerica .a {
+  background: #d1fae5;
+  grid-area: 1 / 1 / 3 / 2; /* row-start / col-start / row-end / col-end */
+}
+
+/* B ocupa (linha 1→2, coluna 2→4) = 1 linha x 2 colunas */
+.grid-area-numerica .b {
+  background: #e9d5ff;
+  grid-area: 1 / 2 / 2 / 4;
+}
+
+/* C ocupa (linha 2→4, coluna 2→3) = 2 linhas x 1 coluna */
+.grid-area-numerica .c {
+  background: #fee2e2;
+  grid-area: 2 / 2 / 4 / 3;
+}
+
+/* D ocupa (linha 3→4, coluna 1→4) = 1 linha x 3 colunas */
+.grid-area-numerica .d {
+  background: #fde68a;
+  grid-area: 3 / 1 / 4 / 4;
+}
+
+/* ================== 2) grid-template-areas ================== */
+/*
+Mapa de áreas:
+"header  header"
+"sidebar content"
+"footer  footer"
+Em telas maiores incluímos uma área "extra"
+*/
+.grid-areas {
+  display: grid;
+  grid-template-columns: 1fr 2fr;     /* sidebar menor, content maior */
+  grid-template-rows: 60px minmax(160px, auto) 60px;
+  grid-template-areas:
+    "header  header"
+    "sidebar content"
+    "footer  footer";
+  gap: 10px;
+}
+
+/* Nomeando cada área */
+.header { grid-area: header; background: #bfdbfe; }
+.sidebar { grid-area: sidebar; background: #fecaca; }
+.content { grid-area: content; background: #bbf7d0; }
+.footer { grid-area: footer; background: #ddd6fe; }
+.extra  { display: none; } /* mostrada só em telas largas */
+
+.area { min-height: 60px; }
+
+/* Em telas grandes, inserimos uma coluna extra e a área "extra" */
+@media (min-width: 900px) {
+  .grid-areas {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas:
+      "header  header  header"
+      "sidebar content extra"
+      "footer  footer  footer";
+  }
+  .extra {
+    display: grid;
+    grid-area: extra;
+    background: #f5d0fe;
+  }
+}
+
+/* ================== 3) SPAN ================== */
+/* 3 colunas iguais; itens usando span em colunas/linhas */
+.grid-span {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 80px; /* altura base das linhas automáticas */
+}
+
+.s1 { background: #e0e7ff; }                 /* normal */
+.s2 { background: #bae6fd; grid-column: span 2; }  /* abrange 2 colunas */
+.s3 { background: #fecdd3; grid-row: span 2; }     /* abrange 2 linhas */
+.s4 { background: #bbf7d0; }
+.s5 { background: #fde68a; }
+
+/* ================== 4) auto-fit vs auto-fill ================== */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.tab {
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.tab.active { background: #eef2ff; }
+
+.grid-auto {
+  display: none; /* alternamos com JS */
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.grid-auto.show { display: grid; }
+
+/* auto-fit: “fecha” lacunas; os itens expandem para ocupar o espaço livre */
+#fit {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* auto-fill: mantém a malha mesmo se faltar item; “slots” permanecem */
+#fill {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.cell {
+  background: #fef3c7;
+  border: 1px dashed #f59e0b;
+  min-height: 80px;
+}
+
+/* ================== Tabela ================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+th, td {
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+  text-align: center;
+}
+th { background: #f3f4f6; }

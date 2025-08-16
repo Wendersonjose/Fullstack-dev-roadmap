@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>CSS Grid – Parte 2</title>
+  <link rel="stylesheet" href="grid-avancado.css" />
+</head>
+<body>
+  <h1>CSS Grid – Áreas, Span e Auto-fit/Auto-fill</h1>
+
+  <!-- 1) POSICIONAMENTO COM grid-area (linhas/colunas numéricas) -->
+  <section class="card">
+    <h2>1) grid-area (linhas/colunas numéricas)</h2>
+    <div class="grid-area-numerica">
+      <div class="box a">A</div>
+      <div class="box b">B</div>
+      <div class="box c">C</div>
+      <div class="box d">D</div>
+    </div>
+    <p class="note">
+      Cada item usa <code>grid-area: linha-início / coluna-início / linha-fim / coluna-fim</code>.
+    </p>
+  </section>
+
+  <!-- 2) NOMEANDO ÁREAS COM grid-template-areas -->
+  <section class="card">
+    <h2>2) grid-template-areas (layout nomeado)</h2>
+    <div class="grid-areas">
+      <header class="area header">Header</header>
+      <nav class="area sidebar">Sidebar</nav>
+      <main class="area content">Content</main>
+      <aside class="area extra">Extra</aside>
+      <footer class="area footer">Footer</footer>
+    </div>
+    <p class="note">
+      O container define o "mapa" de áreas e cada item aponta com <code>grid-area: nome</code>.
+    </p>
+  </section>
+
+  <!-- 3) SPAN (abranger múltiplas colunas/linhas) -->
+  <section class="card">
+    <h2>3) Span (grid-column / grid-row)</h2>
+    <div class="grid-span">
+      <div class="box s1">1</div>
+      <div class="box s2">2 (col span 2)</div>
+      <div class="box s3">3 (row span 2)</div>
+      <div class="box s4">4</div>
+      <div class="box s5">5</div>
+    </div>
+    <p class="note">
+      Use <code>grid-column: span N</code> e <code>grid-row: span N</code> para abranger faixas.
+    </p>
+  </section>
+
+  <!-- 4) AUTO-FIT vs AUTO-FILL com minmax() -->
+  <section class="card">
+    <h2>4) auto-fit x auto-fill (minmax responsivo)</h2>
+    <div class="tabs">
+      <button class="tab active" data-target="#fit">auto-fit</button>
+      <button class="tab" data-target="#fill">auto-fill</button>
+    </div>
+
+    <!-- auto-fit: colapsa “slots” vazios, itens se expandem -->
+    <div id="fit" class="grid-auto show">
+      <div class="cell">A</div><div class="cell">B</div><div class="cell">C</div>
+      <div class="cell">D</div><div class="cell">E</div>
+    </div>
+
+    <!-- auto-fill: reserva “slots” mesmo sem itens, mantendo a malha -->
+    <div id="fill" class="grid-auto fill">
+      <div class="cell">A</div><div class="cell">B</div><div class="cell">C</div>
+      <div class="cell">D</div><div class="cell">E</div>
+    </div>
+
+    <p class="note">
+      Ambos usam <code>repeat( auto-fit|auto-fill, minmax(200px, 1fr) )</code>.  
+      <strong>auto-fit</strong> “fecha” lacunas, as colunas se alargam.  
+      <strong>auto-fill</strong> mantém as faixas (slots) mesmo vazias.
+    </p>
+  </section>
+
+  <!-- 5) TABELA COMPARATIVA -->
+  <section class="card">
+    <h2>📋 Tabela comparativa</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Recurso</th>
+          <th>Para que serve</th>
+          <th>Exemplo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>grid-area: r1 / c1 / r3 / c3</code></td>
+          <td>Posicionar por linhas/colunas numéricas</td>
+          <td>Item ocupa 2 linhas x 2 colunas</td>
+        </tr>
+        <tr>
+          <td><code>grid-template-areas</code></td>
+          <td>Mapa semântico de layout</td>
+          <td>"header header" "sidebar content" ...</td>
+        </tr>
+        <tr>
+          <td><code>grid-column: span 2</code></td>
+          <td>Abranger 2 colunas</td>
+          <td>Card largo</td>
+        </tr>
+        <tr>
+          <td><code>repeat(auto-fit, minmax())</code></td>
+          <td>Grade fluida que “fecha” lacunas</td>
+          <td>Cards elásticos</td>
+        </tr>
+        <tr>
+          <td><code>repeat(auto-fill, minmax())</code></td>
+          <td>Grade que preserva slots vazios</td>
+          <td>Malha constante</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Script mínimo só para alternar a visualização entre fit/fill -->
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const blocks = document.querySelectorAll('.grid-auto');
+    tabs.forEach(t => t.addEventListener('click', () => {
+      tabs.forEach(tb => tb.classList.remove('active'));
+      t.classList.add('active');
+      blocks.forEach(b => b.classList.remove('show'));
+      const id = t.getAttribute('data-target');
+      document.querySelector(id).classList.add('show');
+    }));
+  </script>
+</body>
+</html>
