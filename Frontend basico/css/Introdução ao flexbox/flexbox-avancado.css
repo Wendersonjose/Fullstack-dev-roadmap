@@ -1,0 +1,90 @@
+/* ================== Estilos base ================== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f9fafb;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 25px 0;
+  background: white;
+}
+
+.note {
+  margin-top: 10px;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Itens padrão */
+.item {
+  background: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  border-radius: 6px;
+  min-width: 60px;
+  min-height: 60px;
+}
+
+/* 1) Align-content */
+.exemplo1 {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between; /* controla espaçamento vertical */
+  height: 200px;
+  border: 1px dashed #aaa;
+}
+
+/* 2) Flex-grow */
+.exemplo2 {
+  display: flex;
+}
+.grow1 { flex-grow: 1; } /* cresce pouco */
+.grow2 { flex-grow: 2; } /* cresce mais */
+.grow3 { flex-grow: 3; } /* cresce ainda mais */
+
+/* 3) Flex-shrink */
+.exemplo3 {
+  display: flex;
+  width: 200px; /* forçar encolhimento */
+}
+.shrink1 { flex-shrink: 1; }
+.shrink2 { flex-shrink: 2; }
+.shrink3 { flex-shrink: 3; }
+
+/* 4) Flex-basis */
+.exemplo4 {
+  display: flex;
+}
+.basis1 { flex-basis: 100px; }
+.basis2 { flex-basis: 150px; }
+.basis3 { flex-basis: 200px; }
+
+/* 5) Order */
+.exemplo5 {
+  display: flex;
+}
+.order1 { order: 2; }
+.order2 { order: 3; }
+.order3 { order: 1; }
+
+/* ================== Tabela ================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
+th {
+  background-color: #f4f4f4;
+}

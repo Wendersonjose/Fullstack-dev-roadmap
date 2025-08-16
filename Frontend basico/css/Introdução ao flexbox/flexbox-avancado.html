@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox Avançado</title>
+  <link rel="stylesheet" href="flexbox-avancado.css">
+</head>
+<body>
+  <h1>Flexbox Avançado</h1>
+
+  <!-- Align-content -->
+  <section class="card">
+    <h2>1) Align-content</h2>
+    <div class="container exemplo1">
+      <div class="item">A</div>
+      <div class="item">B</div>
+      <div class="item">C</div>
+      <div class="item">D</div>
+      <div class="item">E</div>
+      <div class="item">F</div>
+    </div>
+    <p class="note">Controla o espaçamento entre as linhas de itens.</p>
+  </section>
+
+  <!-- Flex-grow -->
+  <section class="card">
+    <h2>2) Flex-grow</h2>
+    <div class="container exemplo2">
+      <div class="item grow1">1</div>
+      <div class="item grow2">2</div>
+      <div class="item grow3">3</div>
+    </div>
+    <p class="note">Define quanto cada item cresce em relação aos outros.</p>
+  </section>
+
+  <!-- Flex-shrink -->
+  <section class="card">
+    <h2>3) Flex-shrink</h2>
+    <div class="container exemplo3">
+      <div class="item shrink1">A</div>
+      <div class="item shrink2">B</div>
+      <div class="item shrink3">C</div>
+    </div>
+    <p class="note">Define quanto cada item encolhe quando o espaço é reduzido.</p>
+  </section>
+
+  <!-- Flex-basis -->
+  <section class="card">
+    <h2>4) Flex-basis</h2>
+    <div class="container exemplo4">
+      <div class="item basis1">X</div>
+      <div class="item basis2">Y</div>
+      <div class="item basis3">Z</div>
+    </div>
+    <p class="note">Define o tamanho inicial de cada item antes do ajuste.</p>
+  </section>
+
+  <!-- Order -->
+  <section class="card">
+    <h2>5) Order</h2>
+    <div class="container exemplo5">
+      <div class="item order3">Primeiro</div>
+      <div class="item order1">Segundo</div>
+      <div class="item order2">Terceiro</div>
+    </div>
+    <p class="note">Muda a ordem de exibição dos itens sem alterar o HTML.</p>
+  </section>
+
+  <!-- Tabela comparativa -->
+  <section class="card">
+    <h2>📋 Tabela comparativa - Propriedades Avançadas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Propriedade</th>
+          <th>O que faz</th>
+          <th>Exemplo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>align-content</td>
+          <td>Alinha as linhas do flex container</td>
+          <td>center | space-between</td>
+        </tr>
+        <tr>
+          <td>flex-grow</td>
+          <td>Quanto o item cresce proporcionalmente</td>
+          <td>1 | 2 | 3</td>
+        </tr>
+        <tr>
+          <td>flex-shrink</td>
+          <td>Quanto o item encolhe proporcionalmente</td>
+          <td>0 | 1</td>
+        </tr>
+        <tr>
+          <td>flex-basis</td>
+          <td>Tamanho inicial do item</td>
+          <td>100px | 30%</td>
+        </tr>
+        <tr>
+          <td>order</td>
+          <td>Ordem visual do item</td>
+          <td>1 | 2 | 3</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</body>
+</html>
