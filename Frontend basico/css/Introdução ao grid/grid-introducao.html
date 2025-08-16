@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Introdução ao Grid</title>
+  <link rel="stylesheet" href="grid-introducao.css">
+</head>
+<body>
+  <h1>Introdução ao CSS Grid</h1>
+
+  <!-- Grid básico -->
+  <section class="card">
+    <h2>1) Grid Básico</h2>
+    <div class="grid exemplo1">
+      <div class="item">A</div>
+      <div class="item">B</div>
+      <div class="item">C</div>
+      <div class="item">D</div>
+    </div>
+    <p class="note">Define colunas iguais com <code>grid-template-columns</code>.</p>
+  </section>
+
+  <!-- Grid com tamanhos diferentes -->
+  <section class="card">
+    <h2>2) Colunas de tamanhos diferentes</h2>
+    <div class="grid exemplo2">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+    </div>
+    <p class="note">Usando <code>fr</code> para proporções: 1fr, 2fr, 1fr.</p>
+  </section>
+
+  <!-- Gap -->
+  <section class="card">
+    <h2>3) Espaçamento (gap)</h2>
+    <div class="grid exemplo3">
+      <div class="item">A</div>
+      <div class="item">B</div>
+      <div class="item">C</div>
+      <div class="item">D</div>
+      <div class="item">E</div>
+    </div>
+    <p class="note">Controla o espaçamento entre linhas e colunas.</p>
+  </section>
+
+  <!-- Alinhamento -->
+  <section class="card">
+    <h2>4) Alinhamento</h2>
+    <div class="grid exemplo4">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+    </div>
+    <p class="note">Usando <code>justify-items</code> e <code>align-items</code>.</p>
+  </section>
+
+  <!-- Tabela comparativa -->
+  <section class="card">
+    <h2>📋 Tabela comparativa - Grid Básico</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Propriedade</th>
+          <th>O que faz</th>
+          <th>Exemplo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>display: grid</td>
+          <td>Ativa o CSS Grid</td>
+          <td>.container { display: grid; }</td>
+        </tr>
+        <tr>
+          <td>grid-template-columns</td>
+          <td>Define colunas do grid</td>
+          <td>1fr 1fr 1fr</td>
+        </tr>
+        <tr>
+          <td>grid-template-rows</td>
+          <td>Define linhas do grid</td>
+          <td>100px 200px</td>
+        </tr>
+        <tr>
+          <td>gap</td>
+          <td>Espaçamento entre itens</td>
+          <td>20px</td>
+        </tr>
+        <tr>
+          <td>justify-items</td>
+          <td>Alinha itens horizontalmente</td>
+          <td>start | center | end</td>
+        </tr>
+        <tr>
+          <td>align-items</td>
+          <td>Alinha itens verticalmente</td>
+          <td>start | center | end</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</body>
+</html>
