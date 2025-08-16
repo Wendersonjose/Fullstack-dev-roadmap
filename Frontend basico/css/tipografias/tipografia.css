@@ -1,0 +1,146 @@
+/* ===================== ESTILOS GERAIS DA PÁGINA ===================== */
+body {
+  font-family: Arial, sans-serif; /* Fonte padrão para o documento */
+  margin: 20px;                   /* Respiro externo nas bordas da página */
+  line-height: 1.5;               /* Altura de linha padrão (melhora leitura) */
+  color: #333;                    /* Cor base do texto */
+  background: #fff;               /* Fundo branco neutro */
+}
+
+/* Título principal demonstrando família serifada, peso e alinhamento */
+.titulo {
+  font-family: 'Times New Roman', serif; /* Família serifada (com “serifas”) */
+  font-size: 32px;                        /* Tamanho de fonte maior para destaque */
+  font-weight: bold;                      /* Peso em negrito */
+  text-align: center;                     /* Centraliza o texto */
+  text-transform: capitalize;             /* Primeira letra de cada palavra em maiúscula */
+  margin-bottom: 16px;                    /* Espaço abaixo do título */
+}
+
+/* Subtítulo (seção da tabela comparativa) */
+.subtitulo {
+  font-size: 20px;      /* Tamanho intermediário */
+  margin: 24px 0 8px;   /* Espaços ao redor do subtítulo */
+  font-weight: 600;     /* Semibold: um pouco mais forte que normal */
+}
+
+/* ===================== EXEMPLOS PONTUAIS ===================== */
+
+/* Fonte 1 → Arial normal, 16px */
+.fonte1 {
+  font-family: Arial, sans-serif; /* Família sem serifa (padrão do body também) */
+  font-size: 16px;                /* Tamanho básico comum */
+  font-weight: normal;            /* Peso normal (400) */
+}
+
+/* Fonte 2 → Georgia em itálico, 20px */
+.fonte2 {
+  font-family: Georgia, serif; /* Família serifada elegante */
+  font-size: 20px;             /* Um pouco maior para evidenciar */
+  font-style: italic;          /* Estilo itálico */
+}
+
+/* Fonte 3 → Negrito + maiúsculas, 18px */
+.fonte3 {
+  font-size: 18px;            /* Tamanho médio */
+  font-weight: bold;          /* Negrito (700) */
+  text-transform: uppercase;  /* Converte todo o texto para MAIÚSCULAS */
+}
+
+/* Fonte 4 → Espaçamentos de letras e palavras */
+.fonte4 {
+  font-size: 18px;        /* Tamanho médio */
+  letter-spacing: 3px;    /* Aumenta o espaço ENTRE LETRAS */
+  word-spacing: 10px;     /* Aumenta o espaço ENTRE PALAVRAS */
+}
+
+/* Fonte 5 → Alinhamento central + line-height maior */
+.fonte5 {
+  font-size: 18px;       /* Tamanho médio */
+  text-align: center;    /* Centraliza o texto horizontalmente */
+  line-height: 2;        /* Altura de linha dobrada (2x), dá mais respiro */
+}
+
+/* ===================== TABELA COMPARATIVA ===================== */
+
+/* Tabela base: largura total e bordas unificadas */
+.tabela-tipografia {
+  width: 100%;                 /* Ocupa toda a largura disponível */
+  border-collapse: collapse;   /* Remove espaçamento entre as bordas das células */
+  margin-top: 16px;            /* Espaço acima da tabela */
+  background: #fafafa;         /* Fundo levemente cinza para destacar a área */
+  border: 1px solid #e5e5e5;   /* Borda externa sutil */
+}
+
+/* Células (cabeçalho e conteúdo) com padding e borda */
+.tabela-tipografia th,
+.tabela-tipografia td {
+  border: 1px solid #e5e5e5;   /* Borda sutil separando as células */
+  padding: 12px 14px;          /* Espaçamento interno confortável */
+  text-align: left;            /* Alinhamento padrão à esquerda para legibilidade */
+  vertical-align: middle;      /* Centraliza verticalmente o conteúdo da célula */
+  background: #fff;            /* Fundo branco por padrão nas células */
+}
+
+/* Cabeçalho com fundo diferenciado e texto mais forte */
+.tabela-tipografia thead th {
+  background: #f4f4f4;         /* Destaque visual do cabeçalho */
+  font-weight: 600;            /* Semibold para melhor hierarquia */
+}
+
+/* Listras em linhas pares para legibilidade (zebra striping) */
+.tabela-tipografia tbody tr:nth-child(even) td {
+  background: #fcfcfc;
+}
+
+/* ===================== CÉLULAS DE EXEMPLO (aplicam a propriedade) ===================== */
+
+/* Aplica família serifada apenas na célula de exemplo */
+.ex-familia {
+  font-family: 'Times New Roman', serif; /* Mostra uma fonte serifada */
+}
+
+/* Aumenta o tamanho da fonte nessa célula */
+.ex-tamanho {
+  font-size: 24px; /* Demonstra um tamanho maior */
+}
+
+/* Aplica peso negrito forte */
+.ex-peso {
+  font-weight: 700; /* 700 ~ bold */
+}
+
+/* Estilo itálico na célula */
+.ex-estilo {
+  font-style: italic; /* Exemplo de itálico */
+}
+
+/* Transforma o texto em maiúsculas */
+.ex-transform {
+  text-transform: uppercase; /* Demonstra uppercase */
+}
+
+/* Sublinha o texto da célula */
+.ex-decoracao {
+  text-decoration: underline; /* Exemplo de sublinhado */
+}
+
+/* Aumenta espaço entre letras */
+.ex-letras {
+  letter-spacing: 3px; /* 3px entre cada caractere */
+}
+
+/* Aumenta espaço entre palavras */
+.ex-palavras {
+  word-spacing: 10px; /* 10px entre cada palavra */
+}
+
+/* Aumenta a altura da linha (respiro vertical) */
+.ex-linha {
+  line-height: 2; /* Altura de linha dobrada */
+}
+
+/* Centraliza o texto dentro da célula */
+.ex-alinhamento {
+  text-align: center; /* Alinhamento horizontal central */
+}

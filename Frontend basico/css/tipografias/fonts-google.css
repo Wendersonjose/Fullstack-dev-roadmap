@@ -1,0 +1,183 @@
+/* ===================== VARIÁVEIS DE FONTE E ESCALA ===================== */
+/* 
+  Definimos famílias com fallbacks nativos.
+  Se a Google Font não carregar, o sistema usa fontes locais parecidas.
+*/
+:root {
+  --font-sans: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;       /* corpo do texto */
+  --font-serif: "Merriweather", Georgia, "Times New Roman", serif;                      /* leitura longa */
+  --font-title: "Montserrat", "Roboto", system-ui, Arial, sans-serif;                   /* títulos */
+  --font-mono: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; /* código */
+
+  /* Escala tipográfica simples (pode ajustar ao seu gosto/projeto) */
+  --fs-xxl: clamp(2rem, 2.5vw + 1rem, 3rem); /* responsivo: cresce com a viewport */
+  --fs-xl:  1.75rem;
+  --fs-lg:  1.5rem;
+  --fs-md:  1.25rem;
+  --fs-sm:  1.125rem;
+  --fs-xs:  1rem;
+
+  /* Pesos úteis */
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  /* Cores base */
+  --c-text: #2b2b2b;
+  --c-muted: #666;
+  --c-bg: #ffffff;
+  --c-surface: #fafafa;
+  --c-border: #e7e7e7;
+  --c-primary: #1f6feb;
+  --c-primary-contrast: #fff;
+
+  /* Layout */
+  --radius: 14px;
+  --gap: 16px;
+}
+
+/* ===================== RESETZINHO BÁSICO ===================== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 0;                       /* removemos margens padrão do user-agent */
+  font-family: var(--font-sans);   /* corpo em Roboto (sans) */
+  color: var(--c-text);
+  background: var(--c-bg);
+  line-height: 1.6;                /* altura de linha confortável */
+}
+
+/* Containers com largura máxima para leitura agradável */
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;             /* centraliza horizontalmente */
+  padding: 24px 0;
+}
+
+/* Cartões para separar sessões */
+.card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: var(--gap);
+}
+
+/* ===================== TÍTULOS E SUBTÍTULOS ===================== */
+/* Títulos em Montserrat (tem “personalidade” boa para headers) */
+.heading-xxl {
+  font-family: var(--font-title);  /* Montserrat (fallbacks definidos) */
+  font-size: var(--fs-xxl);
+  font-weight: 800;                /* peso alto para destaque */
+  line-height: 1.15;
+  letter-spacing: 0.2px;
+  margin: 0 0 8px 0;
+}
+
+.lead {
+  font-size: var(--fs-md);
+  color: var(--c-muted);
+  margin: 0 0 8px 0;
+}
+
+.heading-xl {
+  font-family: var(--font-title);
+  font-size: var(--fs-xl);
+  font-weight: 800;
+  margin: 0 0 8px 0;
+}
+
+.heading-lg {
+  font-family: var(--font-title);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  margin: 18px 0 6px 0;
+}
+
+.heading-md {
+  font-family: var(--font-title);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  margin: 14px 0 6px 0;
+}
+
+.heading-sm {
+  font-family: var(--font-title);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  margin: 10px 0 4px 0;
+}
+
+/* ===================== CORPO DO TEXTO ===================== */
+/* Texto padrão em Roboto */
+p {
+  font-size: var(--fs-xs);
+  margin: 0 0 10px 0;
+}
+
+/* Texto de leitura longa em Merriweather */
+.reading {
+  font-family: var(--font-serif);
+  max-width: 65ch;     /* largura de coluna recomendada p/ leitura */
+  line-height: 1.8;    /* mais respiro vertical */
+}
+
+/* Texto auxiliar com contraste reduzido */
+.muted {
+  color: var(--c-muted);
+}
+
+/* ===================== CÓDIGO ===================== */
+.code-block {
+  font-family: var(--font-mono); /* Source Code Pro (monoespaçada) */
+  background: #0f172a;           /* tom escuro neutro */
+  color: #e2e8f0;                /* cinza claro para contraste */
+  padding: 16px;
+  border-radius: var(--radius);
+  overflow: auto;                /* rolagem caso estoure */
+  border: 1px solid #0b1220;
+}
+
+/* ===================== BOTÕES ===================== */
+.btn {
+  display: inline-block;
+  font-family: var(--font-title);   /* Montserrat deixa o botão “forte” */
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .06s ease, box-shadow .12s ease, background .12s ease;
+  margin-right: 8px; /* espaça botões lado a lado */
+}
+
+/* Botão primário – cor de destaque */
+.btn-primary {
+  background: var(--c-primary);
+  color: var(--c-primary-contrast);
+  box-shadow: 0 1px 0 rgba(0,0,0,.12), 0 8px 20px rgba(31,111,235,.22);
+}
+.btn-primary:hover { transform: translateY(-1px); }
+.btn-primary:active { transform: translateY(0); }
+
+/* Botão secundário – neutro, usa borda */
+.btn-secondary {
+  background: #fff;
+  color: var(--c-text);
+  border-color: var(--c-border);
+}
+.btn-secondary:hover { background: #f7f7f7; }
+
+/* ===================== RODAPÉ ===================== */
+.footer {
+  border-top: 1px solid var(--c-border);
+  margin-top: 12px;
+  padding-top: 12px;
+  color: var(--c-muted);
+  font-size: 0.95rem;
+}

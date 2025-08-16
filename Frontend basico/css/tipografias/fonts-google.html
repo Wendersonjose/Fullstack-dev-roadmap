@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tipografia com Google Fonts</title>
+
+  <!--
+    Dica de performance: pré-conectar nos domínios do Google Fonts
+    para reduzir a latência dos downloads.
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!--
+    Importa múltiplas famílias e pesos do Google Fonts.
+    - display=swap evita “texto invisível” durante o carregamento (FOIT),
+      trocando para a fonte assim que estiver pronta.
+    - Você pode ajustar pesos conforme precisar (300,400,500,700...).
+  -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Merriweather:wght@300;400;700&family=Montserrat:wght@400;600;800&family=Source+Code+Pro:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- CSS da página -->
+  <link rel="stylesheet" href="fonts-google.css" />
+</head>
+<body>
+  <header class="container">
+    <h1 class="heading-xxl">
+      Tipografia com Google Fonts (Roboto, Merriweather, Montserrat e Source Code Pro)
+    </h1>
+    <p class="lead">
+      Este exemplo demonstra como importar e aplicar famílias, pesos e tamanhos
+      com uma escala tipográfica simples, além de boas práticas de fallback de fontes.
+    </p>
+  </header>
+
+  <main class="container">
+    <!-- ===================== SEÇÃO 1: TITULAÇÃO ===================== -->
+    <section class="card">
+      <h2 class="heading-xl">Títulos com Montserrat (sem serifa)</h2>
+      <p>
+        Montserrat é ótima para <strong>títulos</strong> modernos e limpos. Aqui usamos pesos
+        <code>600</code> e <code>800</code> para dar hierarquia.
+      </p>
+
+      <h3 class="heading-lg">Heading LG</h3>
+      <h4 class="heading-md">Heading MD</h4>
+      <h5 class="heading-sm">Heading SM</h5>
+    </section>
+
+    <!-- ===================== SEÇÃO 2: TEXTO CORRIDO ===================== -->
+    <section class="card">
+      <h2 class="heading-xl">Texto corrido com Roboto (sem serifa)</h2>
+      <p>
+        Roboto é uma fonte de leitura confortável em interfaces. Você pode variar
+        o <em>peso</em> com <code>300</code>, <code>400</code>, <code>500</code> e <code>700</code>
+        para indicar hierarquia e ênfase.
+      </p>
+
+      <p class="muted">
+        Este parágrafo está com a classe <code>.muted</code>, que reduz contraste para textos
+        auxiliares ou descrições longas.
+      </p>
+    </section>
+
+    <!-- ===================== SEÇÃO 3: TEXTO LONGO/LEITURA ===================== -->
+    <section class="card">
+      <h2 class="heading-xl">Leitura longa com Merriweather (serifada)</h2>
+      <p class="reading">
+        Para blocos de leitura longa, fontes serifadas como <strong>Merriweather</strong> costumam
+        funcionar bem, pois melhoram a fluidez visual em parágrafos densos.
+        Ajustamos <code>line-height</code> e <code>max-width</code> para conforto.
+      </p>
+      <p class="reading">
+        Dica: controle a largura da coluna (em <code>ch</code> ou <code>rem</code>) e a altura de
+        linha (1.6–1.9) para uma experiência mais agradável.
+      </p>
+    </section>
+
+    <!-- ===================== SEÇÃO 4: CÓDIGO ===================== -->
+    <section class="card">
+      <h2 class="heading-xl">Trechos de código com Source Code Pro (monoespaçada)</h2>
+      <pre class="code-block"><code>
+/* Exemplo CSS */
+:root {
+  --font-sans: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-serif: "Merriweather", Georgia, "Times New Roman", serif;
+  --font-title: "Montserrat", "Roboto", system-ui, Arial, sans-serif;
+  --font-mono: "Source Code Pro", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+      </code></pre>
+    </section>
+
+    <!-- ===================== SEÇÃO 5: CONTROLES ===================== -->
+    <section class="card">
+      <h2 class="heading-xl">Botões e pequenos detalhes</h2>
+
+      <!-- Botão primário com Montserrat mais pesada -->
+      <button class="btn btn-primary" type="button">Primário</button>
+
+      <!-- Botão secundário com Roboto -->
+      <button class="btn btn-secondary" type="button">Secundário</button>
+
+      <p class="footnote">
+        Observação: note a diferença de personalidade entre títulos (Montserrat) e corpo (Roboto).
+      </p>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <small>Feito para estudos — você pode adaptar as famílias e pesos conforme seu projeto.</small>
+  </footer>
+</body>
+</html>
