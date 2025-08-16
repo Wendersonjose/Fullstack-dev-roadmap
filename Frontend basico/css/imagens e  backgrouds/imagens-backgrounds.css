@@ -1,0 +1,88 @@
+/* ================== Estilos base ================== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  line-height: 1.6;
+  background-color: #f9fafb;
+}
+
+h1, h2 { margin-bottom: 10px; }
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 20px 0;
+  background: white;
+}
+
+/* ================== Imagens ================== */
+
+/* Imagem simples */
+.img-exemplo {
+  border-radius: 8px;
+  border: 2px solid #444;
+}
+
+/* Imagem responsiva */
+.img-responsiva {
+  max-width: 100%; /* nunca ultrapassa o tamanho do container */
+  height: auto;    /* mantém a proporção */
+  border-radius: 8px;
+  border: 2px solid #2563eb;
+}
+
+/* ================== Backgrounds ================== */
+
+/* Apenas cor */
+.fundo1 {
+  background-color: lightblue;
+}
+
+/* Imagem simples */
+.fundo2 {
+  background-image: url("https://picsum.photos/200/200");
+}
+
+/* Imagem posicionada, sem repetição */
+.fundo3 {
+  background-image: url("https://picsum.photos/150/150");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+
+/* Imagem cobrindo a área */
+.fundo4 {
+  background-image: url("https://picsum.photos/600/400");
+  background-size: cover;       /* cobre toda a área */
+  background-position: center;  /* centraliza */
+  color: white;
+  min-height: 200px;
+}
+
+/* Imagem fixa (efeito parallax) */
+.fundo5 {
+  background-image: url("https://picsum.photos/1200/800");
+  background-size: cover;
+  background-attachment: fixed; /* fixa na tela */
+  color: white;
+  min-height: 250px;
+}
+
+/* Gradiente */
+.fundo6 {
+  background: linear-gradient(135deg, #2563eb, #9333ea);
+  color: white;
+  min-height: 150px;
+}
+
+/* Gradiente + imagem */
+.fundo7 {
+  background: 
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), /* camada escura transparente */
+    url("https://picsum.photos/800/400");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  min-height: 200px;
+}
