@@ -1,0 +1,62 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+/* Caixas base */
+.caixa {
+  width: 200px;
+  height: 100px;
+  margin: 20px;
+  color: white;
+  text-align: center;
+  line-height: 100px;
+  font-weight: bold;
+}
+
+/* Static (padrão, segue o fluxo normal da página) */
+.static {
+  background-color: gray;
+  position: static; /* nem precisaria colocar */
+}
+
+/* Relative (pode ser deslocado em relação à posição original) */
+.relative {
+  background-color: blue;
+  position: relative;
+  top: 20px;  /* desce 20px */
+  left: 30px; /* vai 30px para a direita */
+}
+
+/* Container para testar absolute */
+.container {
+  position: relative; /* necessário para ser referência do absolute */
+  background-color: lightyellow;
+  border: 2px dashed orange;
+  height: 200px;
+  margin: 20px;
+  padding: 10px;
+}
+
+/* Absolute (fica "solto", mas dentro do container relativo) */
+.absolute {
+  background-color: red;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+}
+
+/* Fixed (sempre no mesmo lugar da tela, mesmo rolando) */
+.fixed {
+  background-color: green;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+/* Sticky (age como relative, mas "cola" quando atinge a posição definida) */
+.sticky {
+  background-color: purple;
+  position: sticky;
+  top: 0; /* cola no topo da tela */
+}

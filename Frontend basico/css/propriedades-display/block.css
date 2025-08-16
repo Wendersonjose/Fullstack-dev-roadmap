@@ -1,0 +1,36 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+/* Estilo comum */
+.exemplo {
+  border: 2px solid black;
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+/* BLOCK -> ocupa toda a largura da linha */
+.block {
+  display: block;
+  background-color: lightcoral;
+  width: 200px;
+  height: 50px;
+}
+
+/* INLINE -> ignora width/height, só vai até o tamanho do texto */
+.inline {
+  display: inline;
+  background-color: lightblue;
+  width: 200px; /* não funciona */
+  height: 50px; /* não funciona */
+}
+
+/* INLINE-BLOCK -> fica na mesma linha, mas respeita width/height */
+.inline-block {
+  display: inline-block;
+  background-color: lightgreen;
+  width: 200px;
+  height: 50px;
+}

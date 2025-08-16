@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplos de Position</title>
+  <link rel="stylesheet" href="posicionamento.css">
+</head>
+<body>
+
+  <h1>Exemplos de posicionamento</h1>
+
+  <!-- Padrão: static -->
+  <div class="caixa static">Static (padrão)</div>
+
+  <!-- Relative: deslocado em relação à posição original -->
+  <div class="caixa relative">Relative (top/left)</div>
+
+  <!-- Absolute: relativo ao primeiro "pai" com position diferente de static -->
+  <div class="container">
+    <p>Sou um container (relative)</p>
+    <div class="caixa absolute">Absolute dentro do container</div>
+  </div>
+
+  <!-- Fixed: fixo na tela, mesmo rolando -->
+  <div class="caixa fixed">Fixed (canto inferior direito)</div>
+
+  <!-- Sticky: fica fixo até o scroll passar -->
+  <div class="caixa sticky">Sticky (top: 0)</div>
+
+  <p style="height:1500px;">Role para ver o efeito do fixed e sticky...</p>
+
+</body>
+</html>

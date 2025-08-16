@@ -1,0 +1,42 @@
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+/* BLOCO: ocupa toda a linha */
+div, header, main, footer, section, p, h1 {
+    border: 1px solid black;
+    margin: 5px 0;
+    padding: 5px;
+    background-color: lightgray;
+}
+
+/* INLINE: não aceita height/width, apenas o conteúdo */
+span {
+    background-color: yellow;
+    color: black;
+    padding: 5px;
+    /* width/height não funcionam aqui sem display:inline-block */
+}
+
+/* INLINE-BLOCK: respeita height/width */
+button {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    display: inline-block; /* força aceitar height/width */
+}
+
+/* Classes específicas */
+.primeira {
+    background-color: lightgreen;
+    width: 200px;
+    height: 50px;
+}
+
+.segunda {
+    background-color: lightcoral;
+    width: 200px;
+    height: 50px;
+}
