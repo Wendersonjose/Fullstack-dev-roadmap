@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Transitions e Animações (CSS)</title>
+  <link rel="stylesheet" href="transitions-animacoes.css" />
+</head>
+<body>
+  <h1>Transitions e Animações em CSS</h1>
+
+  <!-- ===================== TRANSITIONS ===================== -->
+  <section class="card">
+    <h2>1) Transitions (mudanças suaves de estado)</h2>
+
+    <!-- Botão: muda cor/elevação ao hover com transition -->
+    <button class="btn-transition">Passe o mouse</button>
+
+    <!-- Card: levanta e adiciona sombra com atraso -->
+    <div class="card-transition">Card com transition e delay</div>
+
+    <!-- Tabela-resumo de propriedades de transition -->
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th>Propriedade</th>
+          <th>O que faz</th>
+          <th>Exemplo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>transition-property</code></td>
+          <td>Quais propriedades animar</td>
+          <td><code>background, transform</code></td>
+        </tr>
+        <tr>
+          <td><code>transition-duration</code></td>
+          <td>Duração</td>
+          <td><code>200ms | .3s</code></td>
+        </tr>
+        <tr>
+          <td><code>transition-timing-function</code></td>
+          <td>Curva de aceleração</td>
+          <td><code>ease | linear | ease-in | cubic-bezier()</code></td>
+        </tr>
+        <tr>
+          <td><code>transition-delay</code></td>
+          <td>Atraso</td>
+          <td><code>120ms</code></td>
+        </tr>
+        <tr>
+          <td><code>transition</code></td>
+          <td>Atalho (shorthand)</td>
+          <td><code>transform .25s ease, box-shadow .25s</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===================== ANIMAÇÕES ===================== -->
+  <section class="card">
+    <h2>2) Animações (keyframes com controle total)</h2>
+
+    <!-- Loader girando continuamente -->
+    <div class="loader"></div>
+
+    <!-- Pulse suave infinito -->
+    <div class="pulse">Pulse</div>
+
+    <!-- Entrada: fade + slide-in -->
+    <div class="box fadein">Fade In</div>
+    <div class="box slidein">Slide In</div>
+
+    <!-- Bounce com direção alternada (alternates) -->
+    <div class="box bounce">Bounce</div>
+
+    <!-- Tabela-resumo de propriedades de animation -->
+    <table class="tabela">
+      <thead>
+        <tr>
+          <th>Propriedade</th>
+          <th>O que faz</th>
+          <th>Exemplo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>@keyframes</code></td>
+          <td>Define as etapas da animação</td>
+          <td><code>from {..} to {..}</code> / <code>0% → 100%</code></td>
+        </tr>
+        <tr>
+          <td><code>animation-name</code></td>
+          <td>Qual keyframe usar</td>
+          <td><code>spin</code></td>
+        </tr>
+        <tr>
+          <td><code>animation-duration</code></td>
+          <td>Duração do ciclo</td>
+          <td><code>1.2s</code></td>
+        </tr>
+        <tr>
+          <td><code>animation-timing-function</code></td>
+          <td>Curva de aceleração</td>
+          <td><code>ease | steps(…) | cubic-bezier()</code></td>
+        </tr>
+        <tr>
+          <td><code>animation-delay</code></td>
+          <td>Atraso inicial</td>
+          <td><code>.3s</code></td>
+        </tr>
+        <tr>
+          <td><code>animation-iteration-count</code></td>
+          <td>Repetições</td>
+          <td><code>1 | 3 | infinite</code></td>
+        </tr>
+        <tr>
+          <td><code>animation-direction</code></td>
+          <td>Direção</td>
+          <td><code>normal | reverse | alternate</code></td>
+        </tr>
+        <tr>
+          <td><code>animation-fill-mode</code></td>
+          <td>Estado antes/depois</td>
+          <td><code>forwards | backwards | both</code></td>
+        </tr>
+        <tr>
+          <td><code>animation</code></td>
+          <td>Atalho (shorthand)</td>
+          <td><code>spin 1s linear infinite</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===================== DICA DE ACESSIBILIDADE ===================== -->
+  <section class="card">
+    <h2>3) Acessibilidade: reduzir movimento</h2>
+    <p class="note">
+      Respeite usuários que preferem menos movimento com a media query
+      <code>@media (prefers-reduced-motion: reduce)</code>.
+    </p>
+  </section>
+</body>
+</html>

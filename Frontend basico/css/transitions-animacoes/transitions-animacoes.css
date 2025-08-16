@@ -1,0 +1,171 @@
+/* ===== Base ===== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+body {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+  background: #f9fafb;
+  color: #111827;
+  line-height: 1.6;
+}
+
+h1, h2 { margin: 0 0 10px 0; }
+
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 22px 0;
+}
+
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  font-size: 14px;
+}
+.tabela th, .tabela td {
+  border: 1px solid #e5e7eb;
+  padding: 10px;
+  text-align: center;
+}
+.tabela th { background: #f3f4f6; }
+.note { color: #6b7280; }
+
+/* =========================================================
+   1) TRANSITIONS
+   - transições suavizam MUDANÇAS entre dois estados (ex.: :hover)
+   ========================================================= */
+
+/* Botão que muda cor, elevação e leve escala ao passar o mouse */
+.btn-transition {
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-weight: 700;
+  padding: 12px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+
+  /* shorthand pode listar várias propriedades separadas por vírgula */
+  transition:
+    background-color .25s ease,
+    transform .2s ease,
+    box-shadow .25s ease;
+}
+.btn-transition:hover {
+  background: #1d4ed8;                 /* muda cor suavemente */
+  transform: translateY(-2px) scale(1.02); /* move/escala */
+  box-shadow: 0 12px 24px rgba(37,99,235,.25);
+}
+
+/* Card que “levanta” com atraso (delay) */
+.card-transition {
+  margin-top: 12px;
+  height: 100px;
+  border-radius: 12px;
+  background: #eef2ff;
+  border: 1px solid #c7d2fe;
+  display: grid;
+  place-items: center;
+
+  transition:
+    transform .35s cubic-bezier(.2,.65,.2,1.0) .06s, /* com delay de 60ms */
+    box-shadow .35s ease .06s;
+}
+.card-transition:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(30,64,175,.25);
+}
+
+/* =========================================================
+   2) ANIMAÇÕES (KEYFRAMES)
+   - para movimentos contínuos, sequências, repetição
+   ========================================================= */
+
+/* Loader circular girando infinitamente */
+.loader {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 6px solid #e5e7eb;
+  border-top-color: #2563eb;      /* cor do “ponteiro” */
+  animation: spin 1s linear infinite;
+  margin: 8px 0;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Efeito “pulse” (cresce/clareia e volta) */
+.pulse {
+  display: inline-grid;
+  place-items: center;
+  width: 100px;
+  height: 40px;
+  background: #22c55e;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: 800;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1);   opacity: 1; }
+  50%      { transform: scale(1.06); opacity: .85; }
+}
+
+/* Caixas com animações de entrada */
+.box {
+  display: inline-grid;
+  place-items: center;
+  width: 120px;
+  height: 60px;
+  margin: 6px 8px 0 0;
+  background: #fef3c7;
+  border: 1px dashed #f59e0b;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+/* Fade in único, mantendo o estado final (forwards) */
+.fadein {
+  opacity: 0;
+  animation: fade-in .6s ease forwards; /* forwards mantém opacidade final */
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* Slide in da esquerda */
+.slidein {
+  animation: slide-in .6s cubic-bezier(.2,.7,.2,1) forwards;
+}
+@keyframes slide-in {
+  from { transform: translateX(-24px); opacity: .001; }
+  to   { transform: translateX(0);     opacity: 1;    }
+}
+
+/* Bounce alternado (vai e volta) com repeat infinito */
+.bounce {
+  animation: bounce 1.2s ease-in-out infinite alternate;
+}
+@keyframes bounce {
+  from { transform: translateY(0);   }
+  to   { transform: translateY(-16px); }
+}
+
+/* =========================================================
+   3) PREFERS-REDUCED-MOTION (acessibilidade)
+   - reduz ou desativa animações para quem prefere menos movimento
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: .001s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001s !important;
+  }
+}
