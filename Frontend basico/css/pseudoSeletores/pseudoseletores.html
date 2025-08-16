@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pseudoseletores CSS</title>
+  <link rel="stylesheet" href="pseudoseletores.css">
+</head>
+<body>
+  <h1>Pseudoseletores em Ação</h1>
+
+  <!-- ================== Exemplos ================== -->
+
+  <h2>Pseudo-classes de estado</h2>
+  <a href="#" class="link">Passe o mouse aqui (:hover)</a>
+  <br><br>
+  <input type="text" placeholder="Clique em mim (:focus)" class="campo">
+
+  <h2>Pseudo-classes estruturais</h2>
+  <ul class="lista">
+    <li>Item 1 (:first-child)</li>
+    <li>Item 2 (:nth-child(2))</li>
+    <li>Item 3 (:last-child)</li>
+  </ul>
+
+  <h2>Pseudo-elementos</h2>
+  <p class="paragrafo">
+    Este parágrafo demonstra o uso de <strong>::first-line</strong> e <strong>::first-letter</strong>.
+  </p>
+
+  <div class="caixa">
+    Caixa com ::before e ::after
+  </div>
+
+  <!-- ================== Tabela Comparativa ================== -->
+  <h2>Tabela Comparativa de Pseudoseletores</h2>
+  <table class="tabela">
+    <thead>
+      <tr>
+        <th>Pseudoseletor</th>
+        <th>Tipo</th>
+        <th>Descrição</th>
+        <th>Exemplo Visual</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>:hover</code></td>
+        <td>Pseudo-classe</td>
+        <td>Estado ao passar o mouse</td>
+        <td><a href="#" class="exemplo-hover">Passe aqui</a></td>
+      </tr>
+      <tr>
+        <td><code>:focus</code></td>
+        <td>Pseudo-classe</td>
+        <td>Estado quando o elemento recebe foco</td>
+        <td><input type="text" placeholder="Clique aqui" class="exemplo-focus"></td>
+      </tr>
+      <tr>
+        <td><code>:first-child</code></td>
+        <td>Pseudo-classe estrutural</td>
+        <td>Seleciona o primeiro filho</td>
+        <td>
+          <ul class="tabela-lista">
+            <li>Primeiro</li>
+            <li>Segundo</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td><code>::first-letter</code></td>
+        <td>Pseudo-elemento</td>
+        <td>Estiliza a primeira letra</td>
+        <td><p class="exemplo-first-letter">Exemplo de texto</p></td>
+      </tr>
+      <tr>
+        <td><code>::before / ::after</code></td>
+        <td>Pseudo-elemento</td>
+        <td>Adiciona conteúdo antes ou depois</td>
+        <td><span class="exemplo-before">Texto</span></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

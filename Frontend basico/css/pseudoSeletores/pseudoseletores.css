@@ -1,0 +1,109 @@
+/* ================== ESTILO BASE ================== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  line-height: 1.6;
+}
+
+h1, h2 { margin-top: 20px; }
+
+/* ================== Pseudo-classes de estado ================== */
+
+/* :hover → link muda cor quando passa o mouse */
+.link {
+  color: blue;
+  text-decoration: none;
+}
+.link:hover {
+  color: red;
+}
+
+/* :focus → input ganha borda verde ao receber foco */
+.campo {
+  border: 2px solid #ccc;
+  padding: 5px;
+}
+.campo:focus {
+  border-color: green;
+  outline: none;
+}
+
+/* ================== Pseudo-classes estruturais ================== */
+.lista li:first-child { color: red; font-weight: bold; }
+.lista li:last-child { color: blue; font-style: italic; }
+.lista li:nth-child(2) { color: green; }
+
+/* ================== Pseudo-elementos ================== */
+.paragrafo::first-letter {
+  font-size: 2em;
+  color: darkred;
+  font-weight: bold;
+}
+.paragrafo::first-line {
+  text-transform: uppercase;
+  color: darkblue;
+}
+
+/* Caixa com before e after */
+.caixa {
+  margin-top: 20px;
+  border: 2px solid black;
+  padding: 10px;
+}
+.caixa::before {
+  content: "👉 ";
+  color: orange;
+}
+.caixa::after {
+  content: " ✅";
+  color: green;
+}
+
+/* ================== Tabela Comparativa ================== */
+.tabela {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.tabela th, .tabela td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+.tabela th { background: #f4f4f4; }
+
+/* Exemplo :hover na tabela */
+.exemplo-hover {
+  color: blue;
+  text-decoration: none;
+}
+.exemplo-hover:hover { color: red; }
+
+/* Exemplo :focus na tabela */
+.exemplo-focus {
+  border: 2px solid #ccc;
+  padding: 4px;
+}
+.exemplo-focus:focus {
+  border-color: green;
+  outline: none;
+}
+
+/* Exemplo :first-child na tabela */
+.tabela-lista li:first-child { color: red; font-weight: bold; }
+
+/* Exemplo ::first-letter na tabela */
+.exemplo-first-letter::first-letter {
+  font-size: 1.5em;
+  color: purple;
+}
+
+/* Exemplo ::before na tabela */
+.exemplo-before::before {
+  content: "★ ";
+  color: gold;
+}
+.exemplo-before::after {
+  content: " ★";
+  color: gold;
+}
