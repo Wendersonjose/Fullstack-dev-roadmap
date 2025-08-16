@@ -1,0 +1,229 @@
+/* ===== base ===== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+:root{
+  --radius: 14px;
+  --gap: 16px;
+  --c-bg: #ffffff;
+  --c-surface: #fafafa;
+  --c-border: #e6e6e6;
+  --c-text: #1f2937;
+  --c-muted: #6b7280;
+  --c-primary: #2563eb;
+
+  --reveal-duration: 560ms;
+  --reveal-delay: 0ms;
+}
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--c-text);
+  background: var(--c-bg);
+  line-height: 1.6;
+}
+
+.container{
+  width: min(1100px, 92%);
+  margin-inline: auto;
+  padding: 24px 0;
+}
+
+h1{ margin: 0 0 8px 0; }
+.lead{ color: var(--c-muted); margin: 0 0 12px 0; }
+.note{ color: var(--c-muted); }
+
+/* espaçadores para scroll */
+.spacer{
+  height: 40vh;
+  display: grid;
+  place-items: center;
+  color: var(--c-muted);
+  opacity: .9;
+}
+
+/* ===== cartões e grid ===== */
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--gap);
+}
+
+.card, .card3d, .flip3d, .parallax-wrap{
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+
+.card{ min-height: 140px; }
+
+.card-3d-section{ margin: 28px 0; }
+
+.btn{
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--c-border);
+  background: #eef2ff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ===== estados de revelação (viewport) ===== */
+.reveal{
+  opacity: 0;
+  transform: translateY(12px); /* ponto de partida da variação 'fade-up' */
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible{
+  animation-duration: var(--reveal-duration);
+  animation-delay: var(--reveal-delay);
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(.2,.65,.2,1);
+}
+
+.fade-up.is-visible   { animation-name: kf-fade-up; }
+.slide-right.is-visible { animation-name: kf-slide-right; }
+.scale-in.is-visible  { animation-name: kf-scale-in; }
+
+/* stagger: filhos animam em cascata quando o pai fica visível */
+.stagger .stagger-list > *{
+  opacity: 0; transform: translateY(8px);
+}
+.stagger.is-visible .stagger-list > *{
+  animation: kf-fade-up 520ms cubic-bezier(.2,.65,.2,1) forwards;
+}
+.stagger.is-visible .stagger-list > *:nth-child(1){ animation-delay: 80ms; }
+.stagger.is-visible .stagger-list > *:nth-child(2){ animation-delay: 160ms; }
+.stagger.is-visible .stagger-list > *:nth-child(3){ animation-delay: 240ms; }
+
+/* ===== keyframes ===== */
+@keyframes kf-fade-up{
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes kf-slide-right{
+  from { opacity: .001; transform: translateX(24px); }
+  to   { opacity: 1;    transform: translateX(0);     }
+}
+@keyframes kf-scale-in{
+  from { opacity: 0; transform: scale(.96); }
+  to   { opacity: 1; transform: scale(1);   }
+}
+
+/* ===== 3D: perspectiva e tilt ===== */
+/* o wrapper fornece a “câmera” 3D */
+.perspective{
+  perspective: 900px; /* menor valor = mais dramaticidade de profundidade */
+}
+
+/* o card se inclina; preserve-3d mantém filhos em 3D */
+.card3d{
+  min-height: 180px;
+  transform-style: preserve-3d;
+  transition: transform .15s ease; /* suaviza retorno ao centro */
+  position: relative;
+}
+
+/* um elemento “elevado” acima do plano (camada) */
+.card3d .badge{
+  position: absolute;
+  top: 12px; right: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--c-primary);
+  color: white;
+  font-weight: 800;
+
+  /* levanta a etiqueta no eixo Z */
+  transform: translateZ(30px);
+}
+
+/* ===== 3D: flip (frente/verso) ===== */
+.flip3d{
+  width: min(520px, 100%);
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform .6s cubic-bezier(.2,.7,.2,1);
+  cursor: pointer;
+}
+
+/* faces (duas “páginas” de um cartão) */
+.flip3d .face{
+  position: absolute;
+  inset: 0;
+  display: grid; place-items: center;
+  border-radius: var(--radius);
+  backface-visibility: hidden; /* esconde a face “de costas” */
+  border: 1px dashed var(--c-border);
+}
+.face-front{ background: #e0f2fe; }
+.face-back{
+  background: #fde68a;
+  transform: rotateY(180deg); /* começa “de costas” */
+}
+
+/* estado “virado” */
+.flip3d.is-flipped{ transform: rotateY(180deg); }
+
+/* ===== 3D: parallax com layers ===== */
+.parallax-wrap{
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  display: grid; place-items: center;
+  text-align: center;
+}
+
+/* cada layer tem profundidade */
+.layer{
+  position: absolute;
+  inset: 0;
+  display: grid; place-items: center;
+  font-weight: 800;
+  color: #111;
+}
+
+/* plano de fundo (mais “distante” e mais escalado para preencher) */
+.l-back{
+  background: linear-gradient(135deg, #dbeafe, #e9d5ff);
+  transform: translateZ(-120px) scale(1.24);
+}
+
+/* plano médio */
+.l-mid{
+  background: radial-gradient(circle at 30% 40%, rgba(255,255,255,.7), transparent 60%);
+  transform: translateZ(-40px) scale(1.08);
+}
+
+/* plano frontal */
+.l-front{
+  background: none;
+  transform: translateZ(30px);
+  color: #111827;
+  text-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+
+/* ===== acessibilidade: reduzir movimento ===== */
+@media (prefers-reduced-motion: reduce){
+  .reveal,
+  .stagger .stagger-list > *{
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* fallback extra quando o JS marcar .no-motion */
+.no-motion{
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}

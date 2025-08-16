@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Animações na Viewport + 3D (CSS/JS)</title>
+  <link rel="stylesheet" href="animacao-viewport.css" />
+</head>
+<body>
+  <header class="container">
+    <h1>Animações na Viewport + Efeitos 3D</h1>
+    <p class="lead">
+      Exemplo com <code>IntersectionObserver</code> (revelar ao entrar na tela),
+      + efeitos 3D: tilt no mouse, flip ao clicar e parallax com <code>perspective</code>.
+    </p>
+  </header>
+
+  <main class="container">
+    <!-- ====== espaçador para forçar rolagem ====== -->
+    <section class="spacer">Role para revelar os elementos ⤵</section>
+
+    <!-- ====== seção 1: reveals 2D (fade/slide/scale + stagger) ====== -->
+    <section class="grid">
+      <!-- Fade + subir -->
+      <article class="card reveal fade-up">
+        <h2>Fade Up</h2>
+        <p>Opacidade 0 → 1 + translateY 12px → 0.</p>
+      </article>
+
+      <!-- Slide direita com delay -->
+      <article class="card reveal slide-right" data-delay="120">
+        <h2>Slide Right</h2>
+        <p>TranslateX 24px → 0 com atraso de 120ms.</p>
+      </article>
+
+      <!-- Scale-in com delay maior -->
+      <article class="card reveal scale-in" data-delay="240">
+        <h2>Scale In</h2>
+        <p>Escala 0.96 → 1 + opacidade 0 → 1.</p>
+      </article>
+
+      <!-- Stagger interno (itens animam em cascata) -->
+      <article class="card reveal fade-up stagger" data-delay="100">
+        <h2>Stagger interno</h2>
+        <ul class="stagger-list">
+          <li>Item A</li>
+          <li>Item B</li>
+          <li>Item C</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ====== seção 2: cartão 3D com tilt no mouse ====== -->
+    <section class="card-3d-section">
+      <h2>Card 3D com tilt (move o mouse em cima)</h2>
+
+      <!-- wrapper com perspective: dá profundidade para filhos -->
+      <div class="perspective">
+        <!-- o elemento que inclina (preserve-3d) -->
+        <article class="card3d tilt reveal fade-up" data-delay="80" id="tilt-card">
+          <!-- uma “camadinha” elevada para dar noção de profundidade -->
+          <div class="badge">3D</div>
+          <h3>Tilting Card</h3>
+          <p>Usa <code>transform: rotateX/rotateY</code> com base no mouse.</p>
+          <button class="btn">Ação</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====== seção 3: flip 3D ao clicar ====== -->
+    <section class="card-3d-section">
+      <h2>Flip 3D (clique para virar)</h2>
+
+      <div class="perspective">
+        <article class="flip3d reveal fade-up" id="flip-card">
+          <!-- face frontal -->
+          <div class="face face-front">
+            <h3>Frente</h3>
+            <p>Clique para ver o verso.</p>
+          </div>
+          <!-- face de trás -->
+          <div class="face face-back">
+            <h3>Verso</h3>
+            <p>Mais conteúdo aqui. Clique novamente para voltar.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====== seção 4: parallax 3D com layers ====== -->
+    <section class="card-3d-section">
+      <h2>Parallax 3D com layers</h2>
+      <div class="perspective parallax-wrap reveal fade-up">
+        <!-- vários planos com profundidades diferentes (translateZ) -->
+        <div class="layer l-back">Plano fundo</div>
+        <div class="layer l-mid">Plano médio</div>
+        <div class="layer l-front">Plano frente</div>
+      </div>
+      <p class="note">
+        Cada layer usa <code>translateZ()</code> e escala para simular profundidade.
+        O wrapper tem <code>perspective</code>.
+      </p>
+    </section>
+
+    <section class="spacer">Fim dos exemplos 👋</section>
+  </main>
+
+  <!-- ====== JS: IntersectionObserver (revelar ao entrar na viewport) ====== -->
+  <script>
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+
+        // respeita prefers-reduced-motion
+        if (prefersReduced) {
+          el.classList.add("no-motion");
+        }
+
+        // delay opcional via data-delay (ms)
+        const delay = parseInt(el.getAttribute("data-delay") || "0", 10);
+        if (delay > 0) el.style.setProperty("--reveal-delay", `${delay}ms`);
+
+        el.classList.add("is-visible");
+        obs.unobserve(el);
+      });
+    }, { threshold: 0.22, rootMargin: "0px 0px -8% 0px" });
+
+    document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+    // ====== JS: Tilt 3D com o mouse (move o mouse sobre o card) ======
+    (function () {
+      const card = document.getElementById("tilt-card");
+      if (!card) return;
+
+      const maxTilt = 12; // graus
+      function handleMove(e) {
+        const r = card.getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        const cy = r.top + r.height / 2;
+        const dx = (e.clientX - cx) / (r.width / 2);  // -1 a 1
+        const dy = (e.clientY - cy) / (r.height / 2); // -1 a 1
+        const rotY = dx * maxTilt; // gira no eixo Y (esquerda/direita)
+        const rotX = -dy * maxTilt; // gira no eixo X (cima/baixo)
+        card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      }
+      function reset() {
+        card.style.transform = "rotateX(0deg) rotateY(0deg)";
+      }
+      card.addEventListener("mousemove", handleMove);
+      card.addEventListener("mouseleave", reset);
+    })();
+
+    // ====== JS: Flip 3D ao clicar (toggle classe .is-flipped) ======
+    (function () {
+      const flip = document.getElementById("flip-card");
+      if (!flip) return;
+      flip.addEventListener("click", () => {
+        flip.classList.toggle("is-flipped");
+      });
+    })();
+  </script>
+</body>
+</html>
