@@ -1,0 +1,213 @@
+/* ===================== BASE/RESET ===================== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+:root {
+  --radius: 14px;
+  --gap: 16px;
+  --c-bg: #ffffff;
+  --c-surface: #fafafa;
+  --c-border: #e6e6e6;
+  --c-text: #1f2937;
+  --c-muted: #6b7280;
+  --c-accent: #2563eb;
+}
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--c-text);
+  background: var(--c-bg);
+  line-height: 1.6;
+}
+
+/* Containers centralizados e com largura máxima confortável */
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+  padding: 24px 0;
+}
+
+/* Cartões para separar seções visualmente */
+.card {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: var(--gap);
+}
+
+h1, h2 { margin: 0 0 10px 0; }
+.lead, .note { color: var(--c-muted); }
+
+/* ===================== 1) LARGURA FLUIDA (%) ===================== */
+/* 
+  width: 100% => ocupa toda a largura do container pai
+  max-width: 600px => impede que fique "largo demais" em telas grandes
+*/
+.box.percent {
+  width: 100%;
+  max-width: 600px;
+  min-height: 80px;
+  border-radius: 12px;
+  border: 1px dashed var(--c-accent);
+  background: #eef2ff;
+  display: grid;
+  place-items: center; /* centraliza conteúdo */
+}
+
+/* ===================== 2) VIEWPORT UNITS (vw/vh/dvh) ===================== */
+/*
+  vw => porcentagem da largura da janela (100vw = 100% da largura da viewport)
+  vh => porcentagem da altura da janela (100vh = 100% da altura da viewport)
+  dvh => altura dinâmica do viewport (melhor em mobile com barras do navegador variáveis)
+*/
+.box.vwvh {
+  width: 80vw;        /* 80% da largura da viewport */
+  min-height: 30vh;   /* pelo menos 30% da altura da viewport */
+  max-width: 900px;
+  border-radius: 12px;
+  border: 1px solid var(--c-border);
+  background: #ecfeff;
+  display: grid;
+  place-items: center;
+  margin-bottom: 12px;
+}
+
+/* "Hero" alto e elástico usando dvh para estabilidade em mobile */
+.hero {
+  min-height: 60dvh;  /* usa altura dinâmica: mais estável em iOS/Android modernos */
+  border-radius: 12px;
+  background: linear-gradient(135deg, #e0f2fe, #dbeafe);
+  border: 1px solid var(--c-border);
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+}
+
+/* ===================== 3) MIN/MAX/CLAMP ===================== */
+/*
+  clamp(min, ideal, max) => trava a largura a um intervalo:
+  - nunca menor que 280px
+  - tenta ficar em 50vw
+  - nunca maior que 720px
+*/
+.box.minmax {
+  width: clamp(280px, 50vw, 720px);
+  min-height: 90px;
+  border-radius: 12px;
+  background: #f0fdf4;
+  border: 1px solid #cbe7cd;
+  display: grid;
+  place-items: center;
+}
+
+/* ===================== 4) ASPECT-RATIO ===================== */
+/*
+  aspect-ratio mantém proporção independente da largura.
+  A largura geralmente é fluida; a altura se ajusta automaticamente.
+*/
+.ratio-wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.ratio-box {
+  width: 100%;               /* ocupa a coluna inteira */
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: #0f172a;
+  font-weight: 600;
+  border: 1px solid var(--c-border);
+}
+
+.one-one {
+  aspect-ratio: 1 / 1;       /* quadrado */
+  background: #fee2e2;
+}
+.sixteen-nine {
+  aspect-ratio: 16 / 9;      /* widescreen */
+  background: #e9d5ff;
+}
+.four-three {
+  aspect-ratio: 4 / 3;       /* clássico */
+  background: #d1fae5;
+}
+
+/* ===================== 5) IMAGENS FLUIDAS ===================== */
+/*
+  max-width: 100% faz a imagem nunca ultrapassar o container.
+  height: auto mantém a proporção original (evita “espichar”).
+*/
+.image-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.fluid-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block; /* remove “buraco” de linha de elementos inline */
+  border: 1px solid var(--c-border);
+}
+
+/* ===================== 6) GRID ELÁSTICO ===================== */
+/*
+  Cada célula tem largura mínima (220px) e cresce até 1fr.
+  auto-fit “encaixa” o máximo de colunas possível conforme a tela.
+*/
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.cell {
+  background: #fff7ed;
+  border: 1px solid #ffedd5;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ===================== 7) VÍDEO RESPONSIVO (IFRAME) ===================== */
+/*
+  O wrapper controla a proporção (16:9) via aspect-ratio,
+  e o iframe ocupa 100% da largura/altura do wrapper.
+*/
+.video-frame {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;             /* arredonda o iframe junto */
+  border: 1px solid var(--c-border);
+  background: #000;             /* fallback enquanto carrega */
+  margin-top: 10px;
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ===================== MEDIA QUERY (ajustes finos) ===================== */
+/* Pequenos ajustes em telas muito estreitas */
+@media (max-width: 380px) {
+  .box.percent,
+  .box.vwvh,
+  .box.minmax { font-size: 0.95rem; }
+
+  .cell { padding: 10px; }
+}

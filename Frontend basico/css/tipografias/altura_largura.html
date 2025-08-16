@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Altura e Largura Responsivas</title>
+  <link rel="stylesheet" href="altura_largura.css" />
+</head>
+<body>
+  <header class="container">
+    <h1>Altura e Largura Responsivas — Exemplos</h1>
+    <p class="lead">
+      Exemplos com %, vw/vh/dvh, min/max-width, clamp(), aspect-ratio, imagens fluidas e grid elástico.
+    </p>
+  </header>
+
+  <main class="container">
+    <!-- ===================== 1) LARGURA FLUIDA (%) ===================== -->
+    <section class="card">
+      <h2>1) Largura fluida com % + limite de expansão</h2>
+      <div class="box percent">
+        width: 100% (do pai), max-width: 600px
+      </div>
+    </section>
+
+    <!-- ===================== 2) VIEWPORT UNITS (vw/vh/dvh) ===================== -->
+    <section class="card">
+      <h2>2) Unidades de viewport (vw, vh, dvh)</h2>
+      <div class="box vwvh">
+        width: 80vw | min-height: 30vh (em iOS/Android modernos prefira 100dvh para altura cheia estável)
+      </div>
+      <div class="hero">
+        Hero com min-height: 60dvh (altura dinâmica do viewport, mais confiável em mobile)
+      </div>
+    </section>
+
+    <!-- ===================== 3) MIN/MAX/CLAMP ===================== -->
+    <section class="card">
+      <h2>3) min/max-width + clamp() para “faixas” responsivas</h2>
+      <div class="box minmax">
+        width: clamp(280px, 50vw, 720px) — cresce com a tela, mas sem passar do limite.
+      </div>
+    </section>
+
+    <!-- ===================== 4) ASPECT-RATIO (quadrado/retângulo responsivo) ===================== -->
+    <section class="card">
+      <h2>4) Proporção fixa com <code>aspect-ratio</code></h2>
+      <div class="ratio-wrap">
+        <div class="ratio-box one-one">1 / 1 (quadrado)</div>
+        <div class="ratio-box sixteen-nine">16 / 9</div>
+        <div class="ratio-box four-three">4 / 3</div>
+      </div>
+    </section>
+
+    <!-- ===================== 5) IMAGEM FLUIDA (width:100%; height:auto) ===================== -->
+    <section class="card">
+      <h2>5) Imagem fluida</h2>
+      <p>Imagens responsivas: <code>max-width: 100%</code> e <code>height: auto</code> evita distorção.</p>
+      <div class="image-row">
+        <img src="https://picsum.photos/800/450" alt="Exemplo 16:9" class="fluid-img" />
+        <img src="https://picsum.photos/600/600" alt="Exemplo quadrado" class="fluid-img" />
+      </div>
+    </section>
+
+    <!-- ===================== 6) GRID ELÁSTICO (auto-fit/minmax) ===================== -->
+    <section class="card">
+      <h2>6) Grid elástico com <code>repeat(auto-fit, minmax())</code></h2>
+      <div class="grid">
+        <div class="cell">Item</div><div class="cell">Item</div><div class="cell">Item</div>
+        <div class="cell">Item</div><div class="cell">Item</div><div class="cell">Item</div>
+      </div>
+      <p class="note">
+        Cada célula tem largura mínima de 220px e cresce até preencher o espaço; número de colunas se adapta.
+      </p>
+    </section>
+
+    <!-- ===================== 7) IFRAME / VÍDEO RESPONSIVO ===================== -->
+        <section class="card">
+        <h2>7) Vídeo responsivo (com <code>aspect-ratio</code>)</h2>
+        <div class="video-frame">
+            <iframe
+            src="https://www.youtube.com/embed/JuQrVla3TTk"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            ></iframe>
+        </div>
+        <p class="note">
+            O wrapper controla a proporção 16:9 e o iframe ocupa 100% do espaço.
+        </p>
+        </section>
+
+
+  </main>
+
+  <footer class="container footer">
+    <small>Feito para estudos — adapte os valores ao seu layout.</small>
+  </footer>
+</body>
+</html>
