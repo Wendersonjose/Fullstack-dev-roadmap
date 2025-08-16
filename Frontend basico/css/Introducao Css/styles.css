@@ -1,6 +1,27 @@
 div{
-    heigth: 100px;
-    backgroud-color: red;
+    height: 100px;
+    background-color: red;
     margin-bottom: 10px;
-   
+
 }
+
+div p{
+    font-size: 20px;
+    color: white;
+}
+
+p{
+    font-size: 36px;
+    color: black;
+}
+
+main section div p{
+    font-size: 64px;
+    color: blue;
+}
+
+div > p {
+    font-size: 12px;
+    color: green;
+}
+
