@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 15px;
+  text-align: center;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+/* Exemplos */
+
+/* color → cor do texto */
+.color {
+  color: red;
+}
+
+/* background-color → cor de fundo */
+.background {
+  background-color: yellow;
+  color: black;
+}
+
+/* border-color → cor da borda */
+.border {
+  border: 3px solid blue;
+  padding: 10px;
+  color: black;
+}
+
+/* outline-color → aparece ao focar (TAB ou clique) */
+.outline {
+  background-color: lightgray;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  outline: 3px solid transparent;
+  cursor: pointer;
+}
+
+.outline:focus {
+  outline-color: green;
+}

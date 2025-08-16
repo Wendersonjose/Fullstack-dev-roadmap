@@ -1,0 +1,77 @@
+/* Estilos gerais da página */
+body {
+  font-family: Arial, sans-serif; /* Define a fonte do texto da página */
+  margin: 20px; /* Espaço externo em volta de todo o body */
+}
+
+table {
+  width: 100%; /* Faz a tabela ocupar 100% da largura disponível */
+  border-collapse: collapse; /* Junta as bordas da tabela (sem espaço duplo) */
+  margin-top: 20px; /* Espaço acima da tabela */
+}
+
+th, td {
+  border: 1px solid #ccc; /* Borda cinza clara em cada célula */
+  padding: 15px; /* Espaçamento interno dentro das células */
+  text-align: center; /* Centraliza o texto nas células */
+}
+
+th {
+  background-color: #f4f4f4; /* Fundo cinza claro só para o cabeçalho */
+}
+
+/* ----------- CAIXA BASE PARA OS EXEMPLOS ----------- */
+.exemplo {
+  width: 150px; /* Largura fixa da caixa */
+  height: 70px; /* Altura fixa da caixa */
+  line-height: 70px; /* Centraliza o texto verticalmente (altura da linha = altura da caixa) */
+  margin: auto; /* Centraliza a caixa horizontalmente */
+  background-color: #fafafa; /* Fundo cinza bem claro */
+}
+
+/* ----------- TIPOS DE BORDA ----------- */
+
+/* Borda sólida (linha contínua preta) */
+.solid { border: 3px solid black; }
+
+/* Borda tracejada vermelha */
+.dashed { border: 3px dashed red; }
+
+/* Borda pontilhada azul */
+.dotted { border: 3px dotted blue; }
+
+/* Borda dupla verde */
+.double { border: 5px double green; }
+
+/* Groove → borda com efeito entalhado 3D em roxo */
+.groove { border: 6px groove purple; }
+
+/* Ridge → borda com efeito em relevo 3D em laranja */
+.ridge  { border: 6px ridge orange; }
+
+/* ----------- BORDAS ARREDONDADAS ----------- */
+
+/* Borda cinza com cantos arredondados */
+.radius { 
+  border: 3px solid gray; 
+  border-radius: 15px; /* Arredonda os cantos em 15px */
+}
+
+/* Borda teal (verde-azulada) em formato de círculo */
+.circle { 
+  border: 3px solid teal; 
+  border-radius: 50%; /* Transforma a caixa num círculo perfeito */
+}
+
+/* ----------- BORDAS MULTICOLORIDAS ----------- */
+
+/* Exemplo com cada lado da borda de uma cor */
+.multicolor {
+  border-width: 5px;       /* Espessura da borda em todos os lados */
+  border-style: solid;     /* Estilo da borda (sólida) */
+
+  border-top-color: red;    /* Borda de cima vermelha */
+  border-right-color: green; /* Borda da direita verde */
+  border-bottom-color: blue; /* Borda de baixo azul */
+  border-left-color: orange; /* Borda da esquerda laranja */
+}
