@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Introdução ao Flexbox</title>
+  <link rel="stylesheet" href="flexbox.css">
+</head>
+<body>
+  <h1>Exemplos de Flexbox</h1>
+
+  <!-- Container com display flex -->
+  <section class="card">
+    <h2>1) Container Flex Básico</h2>
+    <div class="container exemplo1">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+    </div>
+    <p class="note">Itens ficam lado a lado porque o container tem <code>display: flex</code>.</p>
+  </section>
+
+  <!-- justify-content -->
+  <section class="card">
+    <h2>2) Justify-content</h2>
+    <div class="container exemplo2">
+      <div class="item">A</div>
+      <div class="item">B</div>
+      <div class="item">C</div>
+    </div>
+    <p class="note">Distribui os itens no eixo principal (horizontal).</p>
+  </section>
+
+  <!-- align-items -->
+  <section class="card">
+    <h2>3) Align-items</h2>
+    <div class="container exemplo3">
+      <div class="item alto">1</div>
+      <div class="item">2</div>
+      <div class="item baixo">3</div>
+    </div>
+    <p class="note">Alinha os itens no eixo cruzado (vertical).</p>
+  </section>
+
+  <!-- flex-direction -->
+  <section class="card">
+    <h2>4) Flex-direction</h2>
+    <div class="container exemplo4">
+      <div class="item">X</div>
+      <div class="item">Y</div>
+      <div class="item">Z</div>
+    </div>
+    <p class="note">Muda a direção do eixo principal: linha ou coluna.</p>
+  </section>
+
+  <!-- flex-wrap -->
+  <section class="card">
+    <h2>5) Flex-wrap</h2>
+    <div class="container exemplo5">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+    </div>
+    <p class="note">Itens quebram linha quando não cabem.</p>
+  </section>
+
+  <!-- Tabela comparativa -->
+  <section class="card">
+    <h2>📋 Tabela comparativa - Propriedades Flexbox</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Propriedade</th>
+          <th>O que faz</th>
+          <th>Exemplo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>display: flex</td>
+          <td>Ativa o modo flex no container</td>
+          <td><code>.container { display: flex; }</code></td>
+        </tr>
+        <tr>
+          <td>flex-direction</td>
+          <td>Define a direção dos itens</td>
+          <td>row | column</td>
+        </tr>
+        <tr>
+          <td>justify-content</td>
+          <td>Alinha itens no eixo principal</td>
+          <td>center | space-between | flex-start</td>
+        </tr>
+        <tr>
+          <td>align-items</td>
+          <td>Alinha itens no eixo cruzado</td>
+          <td>center | flex-end</td>
+        </tr>
+        <tr>
+          <td>flex-wrap</td>
+          <td>Quebra linha dos itens</td>
+          <td>nowrap | wrap</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</body>
+</html>
