@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Centralização de Div</title>
+  <link rel="stylesheet" href="centralizar-div.css" />
+</head>
+<body>
+  <h1>Exemplos de Centralizar uma DIV</h1>
+
+  <!-- 1. Centralizar com margin auto -->
+  <section>
+    <h2>1) Margin Auto (horizontal)</h2>
+    <div class="caixa margin-auto">Centralizada com margin: auto</div>
+  </section>
+
+  <!-- 2. Centralizar com text-align -->
+  <section>
+    <h2>2) text-align + inline-block</h2>
+    <div class="pai texto-centralizado">
+      <div class="caixa inline-block">Centralizada inline-block</div>
+    </div>
+  </section>
+
+  <!-- 3. Flexbox -->
+  <section>
+    <h2>3) Flexbox</h2>
+    <div class="pai flexbox">
+      <div class="caixa">Centralizada com Flexbox</div>
+    </div>
+  </section>
+
+  <!-- 4. Grid -->
+  <section>
+    <h2>4) Grid</h2>
+    <div class="pai grid">
+      <div class="caixa">Centralizada com Grid</div>
+    </div>
+  </section>
+
+  <!-- 5. Position absoluta -->
+  <section>
+    <h2>5) Position absoluta + transform</h2>
+    <div class="pai relative">
+      <div class="caixa absolute">Centralizada com position</div>
+    </div>
+  </section>
+
+  <!-- ================= TABELA COMPARATIVA ================= -->
+  <section>
+    <h2>Tabela Comparativa</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Método</th>
+          <th>Como funciona</th>
+          <th>Vantagens</th>
+          <th>Desvantagens</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Margin Auto</td>
+          <td><code>margin: auto</code> centraliza horizontalmente.</td>
+          <td>Simples e direto.</td>
+          <td>Não centraliza verticalmente.</td>
+        </tr>
+        <tr>
+          <td>Text-align + inline-block</td>
+          <td>Pai usa <code>text-align: center</code>, filho vira inline-block.</td>
+          <td>Funciona em layouts antigos.</td>
+          <td>Não centraliza verticalmente, só horizontal.</td>
+        </tr>
+        <tr>
+          <td>Flexbox</td>
+          <td><code>display: flex</code> + <code>justify-content</code> + <code>align-items</code>.</td>
+          <td>Centraliza em ambos os eixos facilmente.</td>
+          <td>Precisa suporte de navegadores modernos (hoje todos suportam).</td>
+        </tr>
+        <tr>
+          <td>Grid</td>
+          <td><code>display: grid</code> + <code>place-items: center</code>.</td>
+          <td>Mais simples que flex para centralizar.</td>
+          <td>Exige CSS Grid (navegadores antigos não suportam).</td>
+        </tr>
+        <tr>
+          <td>Position Absoluta</td>
+          <td>Define <code>top/left: 50%</code> + <code>transform: translate</code>.</td>
+          <td>Centraliza em qualquer contexto.</td>
+          <td>Menos semântico, pode dar problemas em layouts responsivos.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</body>
+</html>
