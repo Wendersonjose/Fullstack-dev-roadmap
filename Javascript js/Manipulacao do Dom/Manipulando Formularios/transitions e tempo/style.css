@@ -1,0 +1,44 @@
+.square {
+    width: 400px;
+    height: 400px;
+    margin: 80px auto;
+    transition: background-color 2s ease;
+}
+
+button {
+    margin: 0 auto;
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.animacao-mover{
+    animation: mover 2s ease;
+}
+
+@keyframes mover {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(600px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(600px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+
+}
