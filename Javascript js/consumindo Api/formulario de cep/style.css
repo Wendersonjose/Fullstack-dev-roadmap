@@ -1,0 +1,110 @@
+:root {
+  --verde: #18e395;
+  --bg-page: #f5f5f5;
+  --card: #ffffff;
+  --input: #d9d9d9;
+  --text: #222;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--bg-page);
+  color: var(--text);
+}
+
+main {
+  min-height: 100%;
+  display: grid;
+  place-items: center;        /* centraliza o card */
+}
+
+section {
+  width: 449px;
+  border-radius: 16px;
+  background: var(--card);
+  padding: 32px 36px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.08);
+}
+
+/* coluna interna (mantém o eixo e o espaçamento vertical) */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;                  /* espaço entre título e form */
+}
+
+/* Título com ícone */
+.titulo-endereco {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.titulo-endereco img { width: 40px; height: 40px; }
+.titulo-endereco h1 {
+  margin: 0;
+  font-weight: 800;
+  font-size: 28px;
+  line-height: 1.2;
+  color: var(--verde);
+}
+
+/* Formulário */
+.form-endereco {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-endereco input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid var(--input);
+  border-radius: 6px;
+  background: #fff;
+}
+
+/* Linhas conforme Figma */
+.linha { display: grid; gap: 12px; }
+.linha--1 { grid-template-columns: 1fr; }           /* CEP / Complemento */
+.linha--3 { grid-template-columns: 2fr 1.5fr 1fr; } /* Rua | Bairro | Número */
+.linha--2 { grid-template-columns: 1fr 1fr; }       /* Cidade | Estado */
+
+/* Botão à direita */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+button {
+  padding: 12px 22px;
+  background: var(--verde);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform .05s ease, filter .2s ease;
+}
+button:hover { filter: brightness(.95); }
+button:active { transform: translateY(1px); }
+
+.form-endereco input {
+  width: 100%;
+  padding: 8px;                 /* no Figma: padding 8px */
+  font-size: 14px;              /* mais próximo do mockup */
+  border: 1.5px solid #CCCCCC;  /* no Figma: 1.5px */
+  border-radius: 4px;           /* no Figma: canto mais reto */
+  background: #fff;
+  color: #333;                  /* texto digitado */
+}
+
+/* Placeholder em #CCCCCC */
+.form-endereco input::placeholder {
+  color: #CCCCCC;
+  opacity: 1; /* garante que fique visível */
+}
+

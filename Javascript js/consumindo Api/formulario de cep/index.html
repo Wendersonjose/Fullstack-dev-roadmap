@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário de Endereço</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="stack">
+          <header>
+            <div class="titulo-endereco">
+              <img src="assets/route.png" alt="Ícone de rota" />
+              <h1>Preencha com seu endereço</h1>
+            </div>
+          </header>
+
+          <form class="form-endereco">
+            <!-- CEP (linha 1) -->
+            <div class="linha linha--1">
+              <div>
+                <input
+                  type="text"
+                  id="cep"
+                  name="cep"
+                  placeholder="CEP"
+                  required
+                />
+              </div>
+            </div>
+
+            <!-- Rua | Bairro | Número (linha 3) -->
+            <div class="linha linha--3">
+              <div>
+                <input
+                  type="text"
+                  id="rua"
+                  name="rua"
+                  placeholder="Rua"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  id="bairro"
+                  name="bairro"
+                  placeholder="Bairro"
+                  required
+                />
+              </div>
+              <div>
+                <input type="text" id="numero" name="numero" placeholder="Nº" />
+              </div>
+            </div>
+
+            <!-- Complemento (linha 1) -->
+            <div class="linha linha--1">
+              <div>
+                <input
+                  type="text"
+                  id="complemento"
+                  name="complemento"
+                  placeholder="Complemento"
+                />
+              </div>
+            </div>
+
+            <!-- Cidade | Estado (linha 2) -->
+            <div class="linha linha--2">
+              <div>
+                <input
+                  type="text"
+                  id="cidade"
+                  name="cidade"
+                  placeholder="Cidade"
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  id="estado"
+                  name="estado"
+                  placeholder="Estado"
+                />
+              </div>
+            </div>
+
+            <!-- Botão à direita -->
+            <div class="actions">
+              <button type="submit">Prosseguir</button>
+            </div>
+
+            <!-- opcional: onde mostrar o conselho -->
+            <p
+              id="advice"
+              style="margin: 8px 0 0; font-size: 14px; color: #6b6b6b"
+            ></p>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
