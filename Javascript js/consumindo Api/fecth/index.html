@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRUD com CrudCrud</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Usuários</h1>
+      <p class="subtitle">CRUD simples usando CrudCrud API</p>
+    </header>
+
+    <form id="userForm" class="card form">
+      <input id="userNameInput"  type="text"  placeholder="Nome" required />
+      <input id="userEmailInput" type="email" placeholder="E-mail" required />
+      <input id="userPhoneInput" type="tel"   placeholder="Telefone" required />
+      <input id="userCpfInput"   type="text"  placeholder="CPF (somente números)" required />
+
+      <div class="actions">
+        <button type="submit" class="btn primary" id="submitBtn">Adicionar</button>
+        <button type="button" id="loadUsersButton" class="btn info">Carregar</button>
+        <button type="button" id="cancelEditButton" class="btn danger" style="display:none;">Cancelar</button>
+      </div>
+    </form>
+
+    <section class="card">
+      <ul id="userList" class="list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
